@@ -1,0 +1,6 @@
+#Vagrant shit
+.vagrant
+install.log
+VirtualBox*
+install.log
+common.cab
