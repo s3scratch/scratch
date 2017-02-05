@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "hashicorp/precise64"
+  config.vm.box = "ubuntu/trusty64"
 
   config.ssh.forward_agent = true
   config.ssh.forward_x11 = true
@@ -69,12 +69,11 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    apt-get install software-properties-common python-software-properties
-    add-apt-repository ppa:webupd8team/atom
     apt-get update
-    apt-get install -y node
-    apt-get install -y atom
+    apt-get install -y nodejs
+    apt-get install -y npm
     apt-get install -y git
     apt-get install -y postgresql
+    ln -s /usr/bin/nodejs /usr/bin/node
   SHELL
 end
